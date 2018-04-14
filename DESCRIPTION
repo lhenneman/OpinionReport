@@ -1,0 +1,21 @@
+Package: OpinionReport
+Type: Package
+Title: Create nice plots of AbridgeNews Data
+Version: 0.1.0
+Author: person("Lucas", "Henneman", email = "lhenneman@gmail.com", role = c("aut", "cre"))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Remotes:
+    tidyverse/ggplot2,
+    GuangchuangYu/emojifont,
+    hadley/emo
+Depends:
+    data.table,
+    ggplot2,
+    viridis,
+    emojifont,
+    emo
