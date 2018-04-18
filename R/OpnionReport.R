@@ -13,9 +13,10 @@ OpRep <- function( title = NULL,
               'Disagree' = emo::ji("-1"),
               'Undecided' = emo::ji("confused"))
 
-  # import files
-  file.name <- list.files( path = directory.in,
-                           pattern = pattern.in)
+  # import files - defaults to most recent
+  file.name <- tail( list.files( path = directory.in,
+                           pattern = pattern.in),
+                     n = 1)
   topic.name <-  gsub( '\\d{4}-\\d{2}-\\d{2}|.csv',
                        '',
                        file.name)
