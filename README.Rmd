@@ -22,11 +22,42 @@ library(OpinionReport)
 # Define the data
 ```OpinionReport``` includes a utility, ```OpData``` that takes as inputs all the relavent information for a topic and saves a .csv file that can later be imported to the plotting function. The information is defined as follows:
 
-### Metadata
+### Opinion data
+Opinion data must be provided for the *Left Side* (**LS**), *mid Left Side* (**mLS**), *mid Right Side* (**mRS**), and *Right Side* (**RS**). OpinionData for each article should be provided as a named vector with three entries, "Agree", "Disagree", and "Undecided".
+
+### Names
+Names (```LSname```, ```mLSname```, etc.) should be provided as text strings, but do not need to be provided if you prefer the column labels to be left blank (e.g., ```mLS``` and ```mRS``` are often left blank). If you want to have line breaks included in the eventual plot, use "```/n```". In the command below, the Left Side name (```LSname```) is provided with line break between "Remove" and "Silent", the Right Side name (```RSname```) is provided with line break between "Keep" and "Silent", and no names are provided for ```mLSname``` or ```mRSname```.
+
+### Topic title (file name)
 The ```topictitle``` describes the day's topic in a short unique phrase without spaces that will be used as a base file name for both the .csv file and the eventual plot.
+
+### Output directory
+```outdir``` points to the saving location of the .csv file.
+
 ```{r}
-topictitle <- 'silentsam'
+OpData( LSname = 'Remove\nSilent Sam',
+        RSname = 'Keep\nSilent Sam',
+        LSopinion = c(  'Agree'      = 28,
+                        'Disagree'   = 12,
+                        'Undecided'  = 6 ),
+        mLSopinion = c( 'Agree'      = 21,
+                        'Disagree'   = 13,
+                        'Undecided'  = 10 ),
+        mRSopinion = c( 'Agree'      = 20,
+                        'Disagree'   = 11,
+                        'Undecided'  = 14 ),
+        RSopinion = c(  'Agree'      = 19,
+                        'Disagree'   = 25,
+                        'Undecided'  = 6 ),
+        title = 'silentsam',
+        outdir = '.')
 ```
+
+# Make the plot
+
+
+
+
 
 The ```colorbounds``` describe the left and right colors on the topic's spectrum. 
 ```{r}
@@ -35,60 +66,6 @@ unc.colbounds <- c("#4f9ccf", "#162e4e")
 
 colbounds <- unc.colbounds
 ```
-
-### Opinion data
-Opinion data must be provided for the *Left Side* (**LS**), *mid Left Side* (**mLS**), *mid Right Side* (**mRS**), and *Right Side* (**RS**). Names (```LSname```, ```mLSname```, etc.) should be provided as text strings, but do not need to be provided if you prefer the column labels to be left blank (e.g., ```mLS``` and ```mRS``` are often left blank). If you want to have line breaks included in the eventual plot, use "```/n```". 
-
-```{r}
-LSname <- 'Remove\nSilent Sam'
-LSopinion <- c( 'Agree'      = 28,
-                'Disagree'   = 12,
-                'Undecided'  = 6 )
-```
-
-## Mid Left side (mLS)
-```{r}
-mLSname <- NULL
-mLSopinion <- c( 'Agree'     = 21,
-                 'Disagree'  = 13,
-                 'Undecided' = 10 )
-```
-
-## Mid Right side (mRS)
-```{r}
-mRSname <- NULL
-mRSopinion <- c( 'Agree'     = 20,
-                 'Disagree'  = 11,
-                 'Undecided' = 14 )
-```
-
-##Right side (mLS)
-```{r}
-RSname <- 'Keep\nSilent Sam'
-RSopinion <- c( 'Agree'      = 19,
-                'Disagree'   = 25,
-                'Undecided'  = 6 )
-```
-
-## save a csv file with all the data
-```{r}
-OpData( LSname,
-        mLSname,
-        mRSname,
-        RSname,
-        LSopinion,
-        mLSopinion,
-        mRSopinion,
-        RSopinion,
-        title = topictitle,
-        outdir = '~/Dropbox/HomeLife/Laura/AbridgeNews/OpinionReports/data')
-```
-
-
-
-
-
-
 
 
 
