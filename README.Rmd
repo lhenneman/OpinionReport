@@ -1,0 +1,108 @@
+# ```OpinionReport```
+
+```OpinionReport``` is an R package that includes utility to plot AbridgeNews reaction data.
+
+# Getting started
+
+### Install ```OpinionReport```
+In R or RStudio, install the ```OpinionReport``` R package from github.  
+
+#### Install and load ```devtools```
+```
+install.packages( c('devtools'))
+library(devtools)
+```
+
+#### Install and load ```OpinionReport```
+```{r}
+devtools::install_github('lhenneman/OpinionReport')
+library(OpinionReport)
+```
+
+# Define the data
+```OpinionReport``` includes a utility, ```OpData``` that takes as inputs all the relavent information for a topic and saves a .csv file that can later be imported to the plotting function. The information is defined as follows:
+
+## topic title 
+#  -- no spaces
+#  -- for file names only
+#  -- must be unique
+```{r}
+topictitle <- 'silentsam'
+```
+
+## assign text colorbounds
+#  -- political.colbounds c("#1028C7", "#E8273A")
+#  -- silsam.colbounds    c("#4f9ccf", "#162e4e")
+```{r}
+colbounds <- c("#4f9ccf", "#162e4e")
+```
+
+## Left side (LS)
+```{r}
+LSname <- 'Remove\nSilent Sam'
+LSopinion <- c( 'Agree'      = 28,
+                'Disagree'   = 12,
+                'Undecided'  = 6 )
+```
+
+## Mid Left side (mLS)
+```{r}
+mLSname <- ' '
+mLSopinion <- c( 'Agree'     = 21,
+                 'Disagree'  = 13,
+                 'Undecided' = 10 )
+```
+
+## Mid Right side (mRS)
+```{r}
+mRSname <- '  '
+mRSopinion <- c( 'Agree'     = 20,
+                 'Disagree'  = 11,
+                 'Undecided' = 14 )
+```
+
+##Right side (mLS)
+```{r}
+RSname <- 'Keep\nSilent Sam'
+RSopinion <- c( 'Agree'      = 19,
+                'Disagree'   = 25,
+                'Undecided'  = 6 )
+```
+
+## save a csv file with all the data
+```{r}
+OpData( LSname,
+        mLSname,
+        mRSname,
+        RSname,
+        LSopinion,
+        mLSopinion,
+        mRSopinion,
+        RSopinion,
+        title = topictitle,
+        outdir = '~/Dropbox/HomeLife/Laura/AbridgeNews/OpinionReports/data')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
