@@ -22,6 +22,7 @@ library(OpinionReport)
 # Define the data
 ```OpinionReport``` includes a utility, ```OpData``` that takes as inputs all the relavent information for a topic and saves a .csv file that can later be imported to the plotting function. The information is defined as follows:
 
+### Metadata
 The ```topictitle``` describes the day's topic in a short unique phrase without spaces that will be used as a base file name for both the .csv file and the eventual plot.
 ```{r}
 topictitle <- 'silentsam'
@@ -35,7 +36,9 @@ unc.colbounds <- c("#4f9ccf", "#162e4e")
 colbounds <- unc.colbounds
 ```
 
-## Left side (LS)
+### Opinion data
+Opinion data must be provided for the *Left Side* (**LS**), *mid Left Side* (**mLS**), *mid Right Side* (**mRS**), and *Right Side* (**RS**). Names (```LSname```, ```mLSname```, etc.) should be provided as text strings, but do not need to be provided if you prefer the column labels to be left blank (e.g., ```mLS``` and ```mRS``` are often left blank). If you want to have line breaks included in the eventual plot, use "```/n```". 
+
 ```{r}
 LSname <- 'Remove\nSilent Sam'
 LSopinion <- c( 'Agree'      = 28,
@@ -45,7 +48,7 @@ LSopinion <- c( 'Agree'      = 28,
 
 ## Mid Left side (mLS)
 ```{r}
-mLSname <- ' '
+mLSname <- NULL
 mLSopinion <- c( 'Agree'     = 21,
                  'Disagree'  = 13,
                  'Undecided' = 10 )
@@ -53,7 +56,7 @@ mLSopinion <- c( 'Agree'     = 21,
 
 ## Mid Right side (mRS)
 ```{r}
-mRSname <- '  '
+mRSname <- NULL
 mRSopinion <- c( 'Agree'     = 20,
                  'Disagree'  = 11,
                  'Undecided' = 14 )
