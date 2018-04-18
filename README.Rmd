@@ -81,7 +81,7 @@ colbounds <- unc.colbounds
 ```{r}
 OpRep( title = 'Should UNC Keep Silent Sam?',
        directory.in = '.',
-       pattern.in = topictitle,
+       pattern.in = 'silentsam',
        directory.out = '.',
        text.colorbounds = colbounds)
 ```
