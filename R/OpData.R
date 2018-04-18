@@ -1,13 +1,19 @@
-OpData <- function( LSname,
-                    mLSname,
-                    mRSname,
-                    RSname,
+OpData <- function( LSname = NULL,
+                    mLSname = NULL,
+                    mRSname = NULL,
+                    RSname = NULL,
                     LSopinion,
                     mLSopinion,
                     mRSopinion,
                     RSopinion,
                     title = 'todaystopic',
                     outdir = '~/Dropbox/HomeLife/Laura/AbridgeNews'){
+
+  LSname <-  ifelse( is.null( LSname),    ' ', LSname)
+  mLSname <- ifelse( is.null( mLSname),  '  ', mLSname)
+  mRSname <- ifelse( is.null( mRSname), '   ', mRSname)
+  RSname <-  ifelse( is.null( RSname), '    ', RSname)
+
   dataday1 <- data.table( article = factor( rep( c( LSname,
                                                     mLSname,
                                                     mRSname,
