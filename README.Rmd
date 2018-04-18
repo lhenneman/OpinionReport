@@ -22,19 +22,17 @@ library(OpinionReport)
 # Define the data
 ```OpinionReport``` includes a utility, ```OpData``` that takes as inputs all the relavent information for a topic and saves a .csv file that can later be imported to the plotting function. The information is defined as follows:
 
-## topic title 
-#  -- no spaces
-#  -- for file names only
-#  -- must be unique
+The ```topictitle``` describes the day's topic in a short unique phrase without spaces that will be used as a base file name for both the .csv file and the eventual plot.
 ```{r}
 topictitle <- 'silentsam'
 ```
 
-## assign text colorbounds
-#  -- political.colbounds c("#1028C7", "#E8273A")
-#  -- silsam.colbounds    c("#4f9ccf", "#162e4e")
+The ```colorbounds``` describe the left and right colors on the topic's spectrum. 
 ```{r}
-colbounds <- c("#4f9ccf", "#162e4e")
+political.colbounds <- c("#1028C7", "#E8273A")
+unc.colbounds <- c("#4f9ccf", "#162e4e")
+
+colbounds <- unc.colbounds
 ```
 
 ## Left side (LS)
