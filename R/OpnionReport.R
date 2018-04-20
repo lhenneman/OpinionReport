@@ -88,11 +88,13 @@ OpRep <- function( title = NULL,
                  colour = "white",
                  fontface = "bold") +
       annotate( "text",
+                colour = "white",
                 x = 4,
                 y = .03,
                 label= "www.abridgenews.com",
                 size = 3.5) +
       annotate( "text",
+                colour = "white",
                 x = .825,
                 y = .03,
                 label= format.Date( topic.date,
