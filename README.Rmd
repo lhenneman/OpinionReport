@@ -4,6 +4,9 @@
 
 # Getting started
 
+### Install XQuartz
+```OpinionReport``` relies on emoji fonts that have been tested on Mac and require an updated version of XQuartz. This can be downloaded and installed here: https://www.xquartz.org/. 
+
 ### Install ```OpinionReport```
 In R or RStudio, install the ```OpinionReport``` R package from github.  
 
