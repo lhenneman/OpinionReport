@@ -120,6 +120,9 @@ OpRep <- function( title = NULL,
   ggsave(ggsmiley2,
          filename = file.path( directory.out,
                                paste0( outname,
-                                       '.jpg')))
+                                       '.jpg')),
+         width = 7,
+         height = 7,
+         units = "in")
 
 }
