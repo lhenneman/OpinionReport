@@ -75,9 +75,9 @@ OpRep <- function( title = NULL,
                           labels = unique( df2$article),
                           position = "top",
                           expand = c( 0, 0)) +
-      scale_fill_manual( values = c( 'Disagree' = '#B82125',
-                                     'Agree' = '#519222',
-                                     'Undecided' = '#FAA613')) +
+      scale_fill_manual( values = c( 'Disagree' = '#F44336',
+                                     'Agree' = '#4ECB49',
+                                     'Undecided' = '#FED34C')) +
       scale_y_discrete( expand = c( 0, 0)) +
       geom_text( data = dataday1,
                  aes( label = emotext),
