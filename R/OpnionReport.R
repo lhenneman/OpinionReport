@@ -63,10 +63,10 @@ OpRep <- function( title = NULL,
       ggtitle( title) +
       geom_area( colour=NA,
                  alpha = 0.7) +
-      geom_linerange( aes( ymax = values),
-                      ymin = 0,
-                      position="stack",
-                      colour = NA) +
+      # geom_linerange( aes( ymax = values),
+      #                 ymin = 0,
+      #                 position="stack",
+      #                 colour = NA) +
       geom_col( data = dataday1,
                 position = "stack",
                 stat = "identity",
@@ -79,7 +79,7 @@ OpRep <- function( title = NULL,
                                      'Agree' = '#4ECB49',
                                      'Undecided' = '#FED34C')) +
       scale_y_discrete( expand = c( 0, 0)) +
-      geom_text( data = dataday1,
+      geom_text( data = dataday1[values != 0],
                  aes( label = emotext),
                  family='OpenSansEmoji',
                  position = position_stack( vjust = 0.5),
