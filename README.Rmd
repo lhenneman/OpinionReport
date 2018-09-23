@@ -80,7 +80,8 @@ unc.colbounds <- c("#4f9ccf", "#162e4e")
 colbounds <- unc.colbounds
 ```
 
-### Run the command.
+### Make the plots.
+First, make a single plot that includes all four op-eds
 ```{r}
 OpRep( title = 'Should UNC Keep Silent Sam?',
        directory.in = '.',
@@ -89,6 +90,15 @@ OpRep( title = 'Should UNC Keep Silent Sam?',
        text.colorbounds = colbounds)
 ```
 
+Next, make individual plots for each op-ed
+```{r}
+OpRep( title = 'Should UNC Keep Silent Sam?',
+       directory.in = '.',
+       pattern.in = 'silentsam',
+       directory.out = '.',
+       text.colorbounds = colbounds,
+       plottype = "4horizontal")
+```
 
 
 
