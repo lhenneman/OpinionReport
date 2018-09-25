@@ -132,7 +132,7 @@ OpRep <- function( title = NULL,
            height = 7,
            units = "in")
   } else {
-    dir.create( outname, recursive = T)
+    dir.create( outname, recursive = T, showWarnings = F)
 
     for( a in unique( dataday1[,article])){
 
@@ -155,7 +155,7 @@ OpRep <- function( title = NULL,
                    aes( label = emotext),
                    family='OpenSansEmoji',
                    position = position_stack( vjust = 0.5),
-                   #     size = 8,
+                   size = 1.5,
                    parse = F,
                    #    colour = "white",
                    fontface = "bold") +
@@ -169,14 +169,15 @@ OpRep <- function( title = NULL,
                plot.title = element_text( size = 26,
                                           hjust = 0.5,
                                           face = 'bold'),
+               plot.margin=grid::unit(c(0,0,0,0),"cm"),
                legend.position = 'none')
 
       ggsave(gg4,
              filename = file.path( outname,
                                    paste0( topic.name, "_",
                                            a, '.jpg')),
-             width = 6,
-             height = .4,
+             width = 2,
+             height = .2,
              units = "in",
              bg = "transparent"
       )
