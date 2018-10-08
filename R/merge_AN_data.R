@@ -1,6 +1,6 @@
 
-read.merge.AN.data <- function( rxn.jsn.file = '~/Dropbox/HomeLife/Laura/AbridgeNews/OpinionReports/data/abridge-news-reactions-export.json',
-                                tpc.jsn.file = '~/Dropbox/HomeLife/Laura/AbridgeNews/OpinionReports/data/abridge-news-topics-export (1).json'){
+read.merge.AN.data <- function( rxn.jsn.file = 'data/abridge-news-reactions-export.json',
+                                tpc.jsn.file = 'data/abridge-news-topics-export (1).json'){
 
   `%ni%` <- Negate(`%in%`)
 
