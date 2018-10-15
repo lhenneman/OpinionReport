@@ -8,16 +8,18 @@
 # https://stackoverflow.com/questions/42104031/shiny-interactive-ggplot-with-vertical-line-and-data-labels-at-mouse-hover-poin
 #https://stackoverflow.com/questions/46309675/ggplot2-in-r-annotate-outside-of-plot-and-underline-text
 # label colors: https://stackoverflow.com/questions/25104213/multiple-colors-in-axes-titles-in-ggplot
-setwd( '~/Dropbox/Rpackages/OpinionReport/shinyApp')
+#setwd( '~/Dropbox/Rpackages/OpinionReport/shinyApp')
+#library(rsconnect)
+#rsconnect::deployApp('~/Dropbox/Rpackages/OpinionReport/shinyApp')
 
 library(shiny)
 library(ggplot2)
 library(jsonlite)
 library(data.table)
-#library(plotly)
+library(OpinionReport)
 
 ## source json read/merge funciton
-source( "../R/merge_AN_data.R")
+#source( "merge_AN_data.R")
 
 PAGE_TITLE <- "Abridge News Reaction Data"
 
@@ -117,8 +119,8 @@ server <- function(input, output) {
                       y = y,
                       label = labs,
                       color = colors),
-                 color = c( 'red' = 'red',
-                            'blue' = 'blue'),
+                 color = c( 'red' = 'blue',
+                            'blue' = 'red'),
                  face = 'bold',
                  size = 12,
                  inherit.aes = F,
