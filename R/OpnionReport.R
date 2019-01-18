@@ -180,7 +180,7 @@ OpRep <- function( title = NULL,
              height = .2,
              units = "in",
              bg = "transparent",
-             dpi = 600
+             dpi = 900
       )
 
     }
