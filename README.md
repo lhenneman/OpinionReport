@@ -57,21 +57,21 @@ OpData( LSname = 'Remove\nSilent Sam',
 ```
 
 # Make the plot
-The plotting command (```OpRep```) requires four inputs.
+The plotting command (```OpRep```) requires five inputs.
 
-### The plot title
+### 1. The plot title
 What do you want the main heading of the plot to be? Below, ```title``` is defined as 'Should UNCE Keep Silent Sam?'.
 
-### The directory that stores the data
+### 2. The directory that stores the data
 ```OpRep``` looks in this directory (```directory.in```) for the input data file (it's looking for a file like the output from ```OpData```).
 
-### The pattern that matches the name of the file
+### 3. The pattern that matches the name of the file
 ```OpData``` saves the .csv file with the ```title``` pasted alongside the date the file was created. For example, a file created on 17 April, 2018 with  ```title = 'silentsam'``` would be called "silentsam2018-04-17.csv". ```Opdata``` uses regex matching to look for the ```pattern.in``` in file names within ```directory.in``` for the file on which to base the plot. Your best bet is the use the same string for ```pattern.in``` as you did for ```title``` in ```OpData```.
 
-### The pattern that matches the name of the file
+### 4. The pattern that matches the name of the file
 The saving location of the plot file.
 
-### Color bounds
+### 5. Color bounds
 The ```colorbounds``` describe the left and right colors on the topic's spectrum. Here are some examples.
 ```{r}
 political.colbounds <- c("#1028C7", "#E8273A")
