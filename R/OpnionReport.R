@@ -91,15 +91,15 @@ OpRep <- function( title = NULL,
                                        'Agree' = '#4ECB49',
                                        'Undecided' = '#FED34C')) +
         #   scale_y_discrete( expand = c( 0, 0)) +
-        geom_image( data = dataday1[values != 0],
-                    aes( image = emost),
-                    #  family='OpenSansEmoji',
-                    position = position_stack( vjust = 0.5),
-                    hjust = 0#,
-                    # size = 8,
-                    #  parse = F,
-                    #  colour = NA
-        ) +
+        # geom_image( data = dataday1[values != 0],
+        #             aes( image = emost),
+        #             #  family='OpenSansEmoji',
+        #             position = position_stack( vjust = 0.5),
+        #             hjust = 0#,
+        #             # size = 8,
+        #             #  parse = F,
+        #             #  colour = NA
+        # ) +
         geom_text(data = dataday1[values != 0],
                   aes( label = emotext),
                   position = position_stack( vjust = 0.5),
