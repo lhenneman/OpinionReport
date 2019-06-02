@@ -9,13 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Remotes:
-    tidyverse/ggplot2,
-    GuangchuangYu/emojifont,
-    hadley/emo
 Depends:
     data.table,
     ggplot2,
-    viridis,
-    emojifont,
-    emo
+    magick
