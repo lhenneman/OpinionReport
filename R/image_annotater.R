@@ -1,6 +1,7 @@
 image_annotater <- function( input.dt = top.dt,
                              opinion.use = 'Agree',
-                             ymin.ratio = .6){
+                             ymin.ratio = .5,
+                             emoji.hspace = 0.035){
   # use specific opinion
   dt.use <- input.dt[opinion == opinion.use]
 
@@ -13,10 +14,10 @@ image_annotater <- function( input.dt = top.dt,
   raster <- as.raster(inagein)
 
   # specify ymin location
-  ymin.Agree <- input.dt[opinion == 'Agree']$values * ymin.ratio
-  ymin.Undecided <- ( input.dt[opinion == 'Undecided']$values * ymin.ratio +
+  ymin.Agree <- input.dt[opinion == 'Agree']$values * ymin.ratio + emoji.hspace
+  ymin.Undecided <- ( input.dt[opinion == 'Undecided']$values * ymin.ratio + emoji.hspace +
                         input.dt[opinion == 'Agree']$values)
-  ymin.Disagree <- ( input.dt[opinion == 'Disagree']$values * ymin.ratio +
+  ymin.Disagree <- ( input.dt[opinion == 'Disagree']$values * ymin.ratio + emoji.hspace +
                        input.dt[opinion == 'Agree']$values +
                        input.dt[opinion == 'Undecided']$values)
   if( opinion.use == 'Agree'){
@@ -29,7 +30,7 @@ image_annotater <- function( input.dt = top.dt,
 
   # specify other locations
   xmin = 0.85
-  xmax = 1.15
+  xmax = xmin + 0.3
   ymax = ymin + 0.03
 
   return( annotation_raster(raster, xmin = xmin,

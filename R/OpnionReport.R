@@ -6,7 +6,8 @@ OpRep <- function( title = NULL,
                    directory.out,
                    text.colorbounds = c("#1028C7", "#E8273A"),
                    plottype = c("original", "4horizontal"),
-                   max.label = 0.1){
+                   max.label = 0.1,
+                   max.emoji = 0.15){
 
   #select plottype
   if( length( plottype) == 2){
@@ -15,9 +16,9 @@ OpRep <- function( title = NULL,
   }
 
   #load emoji font
-  emos <-  c( 'Agree' = '~/Dropbox/Rpackages/OpinionReport/inst/icons/Agree.jpg', # system.file("icons", "Agree.jpg", package = "OpinionReport"),
-              'Undecided' = system.file("icons", "Undecided.jpg", package = "OpinionReport"),
-              'Disagree' = system.file("icons", "Disagree.jpg", package = "OpinionReport"))
+  emos <-  c( 'Agree' = system.file("icons", "Agree.png", package = "OpinionReport"),
+              'Undecided' = system.file("icons", "Undecided.png", package = "OpinionReport"),
+              'Disagree' = system.file("icons", "Disagree.png", package = "OpinionReport"))
 
   # import files - defaults to most recent
   file.name <- tail( list.files( path = directory.in,
@@ -148,14 +149,16 @@ OpRep <- function( title = NULL,
       top.dt[, opinion := factor( opinion,
                                   levels = rev( levels( opinion)))]
       top.dt[ values > max.label, emotext := scales::percent( values, accuracy = 1)]
-      top.dt[ values < max.label, emost := NA]
+      top.dt[ values < max.emoji, emost := NA]
+      print( top.dt)
 
       gg4 <- ggplot( data = top.dt,
                      aes( x = 1,
                           y = values,
                           fill = opinion)) +
         geom_bar( stat = 'identity') +
-        geom_text( aes( label = emotext),
+        geom_text( aes( label = emotext,
+                        x = 1),
                    position = position_stack( vjust = 0.5),
                    size = 1.5,
                    parse = F,
@@ -165,9 +168,12 @@ OpRep <- function( title = NULL,
                                        'Undecided' = '#EFC003')) +
         scale_y_discrete( expand = c( 0, 0)) +
         coord_flip() +
-        image_annotater( opinion.use = 'Agree') +
-        image_annotater( opinion.use = 'Undecided') +
-        image_annotater( opinion.use = 'Disagree') +
+        image_annotater( input.dt = top.dt, opinion.use = 'Agree',
+                         ymin.ratio = .5) +
+        image_annotater( input.dt = top.dt, opinion.use = 'Undecided',
+                         ymin.ratio = .5) +
+        image_annotater( input.dt = top.dt, opinion.use = 'Disagree',
+                         ymin.ratio = .5) +
         theme_bw() +
         theme( axis.title = element_blank(),
                axis.text.x = element_blank(),
